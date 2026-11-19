@@ -1,0 +1,81 @@
+name: Build & Release (Mac + Windows)
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            build_cmd: npm run build:mac
+            artifact_name: mac-installers
+            artifact_path: dist/*.dmg
+          - os: windows-latest
+            build_cmd: npm run build:win
+            artifact_name: windows-installers
+            artifact_path: dist/*.exe
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build desktop installers
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+        run: ${{ matrix.build_cmd }}
+
+      - name: Upload built installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_path }}
+          if-no-files-found: error
+
+  publish:
+    name: Publish GitHub Release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download all installers
+        uses: actions/download-artifact@v4
+        with:
+          path: release-files
+          merge-multiple: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-files/*
+          generate_release_notes: true
+          body: |
+            ## CS Lexicon Kurulum Dosyaları
+
+            - **macOS (Apple Silicon — M1/M2/M3/M4):** `*-mac-arm64.dmg`
+            - **macOS (Intel):** `*-mac-x64.dmg`
+            - **Windows (Kurulum Sihirbazı):** `*-Setup-*-win-x64.exe`
+            - **Windows (Kurulumsuz Taşınabilir):** `*-Portable-*-win-x64.exe`
+
+            > **Not:** Uygulama bağımsız (imzasız) olduğu için ilk açılışta sistem güvenlik uyarısı gösterebilir:
+            > - **macOS:** Uygulamaya sağ tıklayıp **Aç** seçeneğini kullanın (veya *Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç*).
+            > - **Windows:** SmartScreen ekranında **Ek bilgi → Yine de çalıştır** seçeneğine tıklayın.

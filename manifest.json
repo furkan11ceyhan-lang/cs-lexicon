@@ -1,0 +1,25 @@
+{
+  "name": "CS Lexicon — Bilgisayar Mühendisliği Akademik İngilizce",
+  "short_name": "CS Lexicon",
+  "description": "Her açılışta bilgisayar mühendisliği alanında akademik İngilizce kelime, örnek cümle ve Türkçe çeviri.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#24487e",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
