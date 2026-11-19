@@ -1,4 +1,4 @@
-const CACHE_NAME = "cs-lexicon-v1";
+const CACHE_NAME = "cs-lexicon-v2";
 const ASSETS = [
   "./",
   "./index.html",

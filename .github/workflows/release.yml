@@ -20,7 +20,7 @@ jobs:
           - os: macos-latest
             build_cmd: npm run build:mac
             artifact_name: mac-installers
-            artifact_path: dist/*.dmg
+            artifact_path: dist/*.zip
           - os: windows-latest
             build_cmd: npm run build:win
             artifact_name: windows-installers
@@ -71,8 +71,7 @@ jobs:
           body: |
             ## CS Lexicon Kurulum Dosyaları
 
-            - **macOS (Apple Silicon — M1/M2/M3/M4):** `*-mac-arm64.dmg`
-            - **macOS (Intel):** `*-mac-x64.dmg`
+            - **macOS:** `*-mac.zip` (ZIP dosyasını açıp uygulamayı *Applications* klasörüne sürükleyin)
             - **Windows (Kurulum Sihirbazı):** `*-Setup-*-win-x64.exe`
             - **Windows (Kurulumsuz Taşınabilir):** `*-Portable-*-win-x64.exe`
 

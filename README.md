@@ -35,7 +35,7 @@ GitHub Pages bağlantısını Chrome, Edge veya Safari ile açın:
 ## Özellikler
 
 - **Her Açılışta Yeni Kelime:** Gördüğünüz kelimeleri hatırlar, aynı kelimeyi tekrar etmeden sıradaki yeni kelimeyi getirir ve öğrenilmemiş kelimelere öncelik verir.
-- **60 Akademik CS Terimi:** Algoritmalar, Sistem & Mimari, Yapay Zeka & ML, Dağıtık Sistemler, Ağ & Sistemler, Yazılım Mühendisliği, Kuram, Güvenlik & Veri ve Akademik Yazım alanlarında.
+- **500 Akademik CS Terimi:** Algoritmalar, Sistem & Mimari, Yapay Zeka & ML, Dağıtık Sistemler, Ağ & Sistemler, Yazılım Mühendisliği, Kuram, Güvenlik & Veri ve Akademik Yazım alanlarında.
 - **Cümle İçi Vurgulama + Türkçe Çeviri:** Kelime akademik cümle içinde vurgulanır; altında kelimenin Türkçe karşılığı ve cümlenin Türkçe çevirisi yer alır.
 - **Sesli Telaffuz:** Hem kelimeyi hem de örnek cümleyi İngilizce olarak seslendirir (`S`).
 - **Kendini Test Et Modu:** İsteğe bağlı olarak Türkçe bölümü bulanıklaştırıp (`H`) kendinizi deneyebilirsiniz.
