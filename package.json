@@ -34,7 +34,13 @@
     "mac": {
       "icon": "build/icon.png",
       "target": [
-        "zip"
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
       ]
     },
     "win": {
