@@ -32,22 +32,10 @@
       "electron/**/*"
     ],
     "mac": {
-      "category": "public.app-category.education",
       "icon": "build/icon.png",
-      "identity": null,
       "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "arm64",
-            "x64"
-          ]
-        }
-      ],
-      "artifactName": "CS-Lexicon-${version}-mac-${arch}.${ext}"
-    },
-    "dmg": {
-      "title": "CS Lexicon ${version}"
+        "zip"
+      ]
     },
     "win": {
       "icon": "build/icon.png",
